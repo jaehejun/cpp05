@@ -3,7 +3,7 @@
 
 Bureaucrat::Bureaucrat()
 {
-	std::cout << "Bureaucrat constructed" << std::endl;
+	std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, const int &grade) : name(name), grade(grade)
@@ -15,7 +15,7 @@ Bureaucrat::Bureaucrat(const std::string &name, const int &grade) : name(name), 
 		throw GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : name("Bureaucrat"), grade(other.grade)
 {
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
 }
@@ -57,6 +57,11 @@ void Bureaucrat::decrementGrade()
 	if (grade >= 150)
 		throw GradeTooLowException();
 	grade += 1;
+}
+
+void Bureaucrat::signForm()
+{
+	
 }
 
 std::ostream &operator<<(std::ostream &outStream, const Bureaucrat &obj)

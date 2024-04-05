@@ -1,4 +1,4 @@
-NAME	=	Bureaucrat
+NAME	=	Form
 
 CXX		=	c++
 
@@ -8,8 +8,10 @@ SRCS		=	main.cpp\
 				Bureaucrat.cpp\
 				GradeTooHighException.cpp\
 				GradeTooLowException.cpp\
+				Form.cpp\
 				
 INCS		=	Bureaucrat.hpp\
+				Form.hpp\
 
 OBJS	=	$(SRCS:.cpp=.o)
 
