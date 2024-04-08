@@ -6,8 +6,6 @@ CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -O0
 
 SRCS		=	main.cpp\
 				Bureaucrat.cpp\
-				GradeTooHighException.cpp\
-				GradeTooLowException.cpp\
 				
 INCS		=	Bureaucrat.hpp\
 

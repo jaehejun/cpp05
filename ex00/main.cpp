@@ -22,5 +22,30 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
+    try
+    {
+        Bureaucrat c("c", 1);
+        std::cout << c << std::endl;
+        Bureaucrat d("d", 0);
+        std::cout << d << std::endl;
+    }
+	catch (const std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+    
+    try
+    {
+        Bureaucrat e("e", 150);
+        std::cout << e << std::endl;
+        Bureaucrat f("f", 151);
+        std::cout << f << std::endl;
+    }
+	catch (const std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+
     return 0;
 }

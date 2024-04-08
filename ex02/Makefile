@@ -1,4 +1,4 @@
-NAME	=	Form
+NAME	=	VariableForms
 
 CXX		=	c++
 
@@ -6,10 +6,12 @@ CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -O0
 
 SRCS		=	main.cpp\
 				Bureaucrat.cpp\
-				Form.cpp\
+				AForm.cpp\
+				ShrubberyCreationForm.cpp\
 				
 INCS		=	Bureaucrat.hpp\
-				Form.hpp\
+				AForm.hpp\
+				ShrubberyCreationForm.hpp\
 
 OBJS	=	$(SRCS:.cpp=.o)
 
