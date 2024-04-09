@@ -15,7 +15,8 @@ AForm::AForm(const std::string &name, const std::string &target, const int &grad
 }
 
 AForm::AForm(const AForm &other)
-    : name(other.name), target(other.target), isSigned(other.isSigned), gradeSign(other.gradeSign), gradeExecute(other.gradeExecute)
+    : name(other.name), target(other.target), isSigned(other.isSigned), gradeSign(other.gradeSign),
+      gradeExecute(other.gradeExecute)
 {
 }
 
@@ -29,7 +30,7 @@ AForm &AForm::operator=(const AForm &other)
     {
         isSigned = other.isSigned;
     }
-	return *this;
+    return *this;
 }
 
 const std::string AForm::getName() const
@@ -50,6 +51,11 @@ int AForm::getGradeSign() const
 int AForm::getGradeExecute() const
 {
     return gradeExecute;
+}
+
+const std::string AForm::getTarget() const
+{
+    return target;
 }
 
 void AForm::beSigned(const Bureaucrat &par)
@@ -76,4 +82,19 @@ const char *AForm::GradeTooLowException::what() const throw()
 const char *AForm::GradeTooHighException::what() const throw()
 {
     return "Grade Too High!";
+}
+
+const char *AForm::FormIsNotSigned::what() const throw()
+{
+    return "Form is not signed!";
+}
+
+const char *AForm::FailToOpenFile::what() const throw()
+{
+    return "Failed to open file!";
+}
+
+const char *AForm::FailToRobotomize::what() const throw()
+{
+    return "Failed to Robotomize!";
 }
