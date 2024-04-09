@@ -1,7 +1,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "AForm.hpp"
+#include "Form.hpp"
 #include <iostream>
 #include <string>
 
@@ -33,8 +33,8 @@ class Bureaucrat
     int getGrade() const;
     void incrementGrade();
     void decrementGrade();
-    void signForm(AForm &form);
-    virtual void executeForm(AForm const &form);
+    void signForm(Form &form);
+    virtual void executeForm(Form const &form);
 };
 
 std::ostream &operator<<(std::ostream &outStream, const Bureaucrat &obj);
