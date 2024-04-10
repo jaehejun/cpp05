@@ -1,7 +1,7 @@
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
-#include <fstream>
+#include "Bureaucrat.hpp"
 #include <iostream>
 #include <string>
 
@@ -15,7 +15,6 @@ class AForm
     bool isSigned;
     const int gradeSign;
     const int gradeExecute;
-    AForm();
     AForm(const AForm &other);
     AForm &operator=(const AForm &other);
 
@@ -35,17 +34,7 @@ class AForm
       public:
         virtual const char *what() const throw();
     };
-    class FailToOpenFile : public std::exception
-    {
-      public:
-        virtual const char *what() const throw();
-    };
-    class FailToRobotomize : public std::exception
-    {
-      public:
-        virtual const char *what() const throw();
-    };
-
+    
     AForm(const std::string &name, const std::string &target, const int &gradeSign, const int &gradeExecute);
     virtual ~AForm();
 

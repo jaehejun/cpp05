@@ -1,8 +1,18 @@
 #include "AForm.hpp"
-#include "Bureaucrat.hpp"
 
-AForm::AForm() : name("AForm"), isSigned(false), gradeSign(1), gradeExecute(1)
+const char *AForm::GradeTooLowException::what() const throw()
 {
+    return "Grade Too Low!";
+}
+
+const char *AForm::GradeTooHighException::what() const throw()
+{
+    return "Grade Too High!";
+}
+
+const char *AForm::FormIsNotSigned::what() const throw()
+{
+    return "Form is not signed!";
 }
 
 AForm::AForm(const std::string &name, const std::string &target, const int &gradeSign, const int &gradeExecute)
@@ -14,23 +24,8 @@ AForm::AForm(const std::string &name, const std::string &target, const int &grad
         throw GradeTooLowException();
 }
 
-AForm::AForm(const AForm &other)
-    : name(other.name), target(other.target), isSigned(other.isSigned), gradeSign(other.gradeSign),
-      gradeExecute(other.gradeExecute)
-{
-}
-
 AForm::~AForm()
 {
-}
-
-AForm &AForm::operator=(const AForm &other)
-{
-    if (this != &other)
-    {
-        isSigned = other.isSigned;
-    }
-    return *this;
 }
 
 const std::string AForm::getName() const
@@ -72,29 +67,4 @@ std::ostream &operator<<(std::ostream &outStream, const AForm &obj)
               << ", grade required to sign: " << obj.getGradeSign()
               << ", grade required to execute: " << obj.getGradeExecute() << std::endl;
     return outStream;
-}
-
-const char *AForm::GradeTooLowException::what() const throw()
-{
-    return "Grade Too Low!";
-}
-
-const char *AForm::GradeTooHighException::what() const throw()
-{
-    return "Grade Too High!";
-}
-
-const char *AForm::FormIsNotSigned::what() const throw()
-{
-    return "Form is not signed!";
-}
-
-const char *AForm::FailToOpenFile::what() const throw()
-{
-    return "Failed to open file!";
-}
-
-const char *AForm::FailToRobotomize::what() const throw()
-{
-    return "Failed to Robotomize!";
 }

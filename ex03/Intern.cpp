@@ -1,22 +1,15 @@
 #include "Intern.hpp"
 
+const char *Intern::ParamNotExist::what() const throw()
+{
+	return "Parameter doesn't exist!";
+}
+
 Intern::Intern()
 {}
 
-Intern::Intern(const Intern &other)
-{
-	static_cast<void>(other);
-}
-
 Intern::~Intern()
 {}
-
-Intern &Intern::operator=(const Intern &other)
-{
-	if (this != &other)
-		;
-	return *this;
-}
 
 Form *Intern::createShrubberyForm(const std::string &target)
 {
@@ -36,7 +29,7 @@ Form *Intern::createPresidentialForm(const std::string &target)
 Form *Intern::makeForm(const std::string &name, const std::string &target)
 {
 	std::string names[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
-	Form* (Intern::*functions[3])(const std::string&)
+	Form* (Intern::*functions[3])(const std::string &target)
 	= {&Intern::createShrubberyForm, &Intern::createRobotomyForm, &Intern::createPresidentialForm};
 
 	for (int i = 0; i < 3; i++)
@@ -49,9 +42,4 @@ Form *Intern::makeForm(const std::string &name, const std::string &target)
 		}
 	}
 	throw ParamNotExist();
-}
-
-const char *Intern::ParamNotExist::what() const throw()
-{
-	return "Parameter doesn't exist!";
 }

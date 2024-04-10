@@ -1,26 +1,16 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("default", "target", 1, 1)
+const char *RobotomyRequestForm::FailToRobotomize::what() const throw()
 {
+    return "Failed to Robotomize!";
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("Robotomy", target, 72, 45)
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
-    : AForm(other.getName(), other.getTarget(), 72, 45)
-{
-}
-
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-}
-
-RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
-{
-    static_cast<void>(other);
-    return *this;
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const

@@ -13,6 +13,9 @@ class Intern
     Form *createRobotomyForm(const std::string &target);
     Form *createPresidentialForm(const std::string &target);
 
+    Intern(const Intern &other);
+    Intern &operator=(const Intern &other);
+
   public:
     class ParamNotExist : public std::exception
     {
@@ -20,9 +23,7 @@ class Intern
         virtual const char *what() const throw();
     };
     Intern();
-    Intern(const Intern &other);
     ~Intern();
-    Intern &operator=(const Intern &other);
     Form *makeForm(const std::string &name, const std::string &target);
 };
 

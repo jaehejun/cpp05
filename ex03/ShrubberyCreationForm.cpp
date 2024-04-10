@@ -1,26 +1,16 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("default", "target", 1, 1)
+const char *ShrubberyCreationForm::FailToOpenFile::what() const throw()
 {
+    return "Failed to open file!";
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : Form("Shrubbery", target, 145, 137)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
-    : Form(other.getName(), other.getTarget(), 145, 137)
-{
-}
-
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-}
-
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
-{
-    static_cast<void>(other);
-    return *this;
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const

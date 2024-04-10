@@ -6,14 +6,21 @@
 #include <cstdlib>
 #include <ctime>
 
+class Bureaucrat;
+class AForm;
+
 class RobotomyRequestForm : public AForm
 {
   private:
-    RobotomyRequestForm();
     RobotomyRequestForm(const RobotomyRequestForm &other);
     RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
 
   public:
+    class FailToRobotomize : public std::exception
+    {
+      public:
+        virtual const char *what() const throw();
+    };
     RobotomyRequestForm(const std::string &target);
     virtual ~RobotomyRequestForm();
 

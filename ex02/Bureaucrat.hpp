@@ -5,12 +5,13 @@
 #include <iostream>
 #include <string>
 
+class AForm;
+
 class Bureaucrat
 {
   private:
     const std::string name;
     int grade;
-    Bureaucrat();
     Bureaucrat(const Bureaucrat &other);
     Bureaucrat &operator=(const Bureaucrat &other);
 

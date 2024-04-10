@@ -4,10 +4,12 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+class Form;
+
 class PresidentialPardonForm : public Form
 {
   private:
-    PresidentialPardonForm();
     PresidentialPardonForm(const PresidentialPardonForm &other);
     PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
 
